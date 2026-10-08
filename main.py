@@ -1,27 +1,39 @@
 import random 
 
 while True: 
-    choice = print("1.Rock\n2.Paper\n3.Scissor\n4.Quit")
+   print("|ROCK PAPER SCISSORS|\n1.Rock\n2.Paper\n3.Scissor\n4.Quit")
     
-    user_input = input("Enter your choice: ").lower().strip()
+    user_input = input("Enter your choice: ").lower().strip().title()
+
     if user_input not in ["1","2","3","4"]:
         print(f"{user_input} is an invalid choice.")
         continue
+    elif user_input == "1":
+        user_input = "Rock"
+    elif user_input == "2":
+            user_input = "Paper"
+    elif user_input == "3":
+            user_input = "Scissor"
 
-    system_input = random.choice(["rock", "paper" , "scissor"])
+    system_input = random.choice(["Rock", "Paper" , "Scissor"])
 
-    print(f"You chose {user_input}, Oppenent chose {system_input}")
+    if user_input == "4":
+         print("Thanks for playing!")
+         break
 
-    if user_input == system_input:
+    elif user_input == system_input:
         print("It's a TIE!")
-        break
+        print(f"You chose {user_input}, Oppenent chose {system_input}\n")
+        continue
 
-    elif (user_input == "rock" and system_input == "scissor") or \
-        (user_input == "scissor" and system_input == "paper") or \
-        (user_input == "paper" and system_input == "rock"):
+    elif (user_input == "Rock" and system_input == "Scissor") or \
+        (user_input == "Scissor" and system_input == "Paper") or \
+        (user_input == "Paper" and system_input == "Rock"):
         print ("You WIN!")
-        break
-
+        print(f"You chose {user_input}, Oppenent chose {system_input}\n")
+        continue
+    
     else:
         print("You LOSE!")
-        break
+        print(f"You chose {user_input}, Oppenent chose {system_input}\n")
+        continue
